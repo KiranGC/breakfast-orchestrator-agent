@@ -4,12 +4,18 @@ An AI Agent designed for the Kaggle Capstone Project to plan, schedule, and orch
 
 ## Problem Statement
 
-[Insert Problem Statement Here]
+•	The Problem: Managing personal nutrition involves managing trade-offs: time, dietary restrictions, and kitchen logistics. Current apps are fragmented—one for groceries, one for recipes, one for scheduling.
+•	The Solution: An AI-native "Concierge Agent" that treats breakfast planning as a Constraint Satisfaction Problem.
+•	Key "Wow" Factor: Unlike a static calendar, the agent optimizes for "Batter-Batching" (Idli/Dosa production) and ensures nutritional variety through a dynamic "Category Lockout" system.
 *Describe the challenges of planning breakfast menus, ingredient constraints, and scheduling, and how this AI agent aims to solve it.*
 
 ## Architecture
+•	Orchestrator: A Python-based agentic framework that utilizes a system prompt to enforce logic constraints.
+•	Knowledge Base: A JSON-structured database of 100+ recipes, including metadata for "batter-based" classification and ingredient lists.
+•	Logic Engine: Implements a "Category Cooling-Off" period where categories (e.g., Dosa/Idli) are locked out if used in the current or previous week, ensuring balanced nutrition.
+•	Tooling: Utility functions for grocery list de-duplication and automated resource retrieval (YouTube links).
 
-[Insert Architecture Diagram / Details Here]
+
 *Outline how the planner, utility functions, and recipes data interact.*
 
 ```
