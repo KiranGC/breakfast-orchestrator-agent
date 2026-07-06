@@ -35,6 +35,34 @@ st.markdown("""
         color: #f1f1f5;
     }
     
+    /* Give header breathing room at the top to prevent clipping */
+    .block-container {
+        padding-top: 3.5rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    /* Reset title headers and align top left with margin */
+    h1 {
+        margin: 0 !important;
+        margin-top: 5px !important;
+        padding: 0 !important;
+        font-size: 2.2rem !important;
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+        line-height: 1.2 !important;
+    }
+    
+    /* Level the selectbox alignment */
+    div[data-testid="stSelectbox"] {
+        margin-top: 8px !important;
+    }
+    
+    /* Level the settings gear button alignment */
+    div[data-testid="stPopover"] {
+        margin-top: 8px !important;
+    }
+    
     .stButton>button {
         background: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%);
         color: white;
@@ -59,11 +87,11 @@ st.markdown("""
         border-radius: 16px;
         padding: 16px;
         margin-bottom: 10px;
-        height: 220px;
+        height: 180px;
         backdrop-filter: blur(20px);
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-start;
         transition: all 0.3s ease;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     }
@@ -158,13 +186,21 @@ st.markdown("""
         border: 1px solid rgba(200, 200, 200, 0.15);
     }
 
-    .chat-panel {
-        background: rgba(255, 255, 255, 0.01);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 24px;
-        padding: 20px;
-        backdrop-filter: blur(20px);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+    /* Style the right column container block to align top and bottom with cards (margin-top: 48px, min-height: 456px) */
+    div[data-testid="column"] div[data-testid="stVerticalBlockBorderWrapper"],
+    div[data-testid="column"] div[data-testid="stVerticalBlock"] {
+        background: rgba(255, 255, 255, 0.01) !important;
+        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+        border-radius: 24px !important;
+        padding: 20px !important;
+        backdrop-filter: blur(20px) !important;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15) !important;
+        margin-top: 48px !important;
+        min-height: 456px !important;
+        max-height: 456px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -204,6 +240,9 @@ def init_session():
     if "selected_day_idx" not in st.session_state:
         st.session_state.selected_day_idx = None
 
+    if "pending_swap" not in st.session_state:
+        st.session_state.pending_swap = None
+
 # Initialize Data
 init_session()
 
@@ -221,6 +260,7 @@ with col_nav:
     if st.session_state.current_week_idx != week_options.index(selected_week):
         st.session_state.current_week_idx = week_options.index(selected_week)
         st.session_state.selected_day_idx = None
+        st.rerun()
 
 with col_gear:
     # Gear popover replaces sidebar
@@ -292,7 +332,7 @@ with left_col:
                             st.session_state.current_week = new_plan
                         else:
                             st.session_state.next_week = new_plan
-                        st.session_state.selected_day_idx = None  # Reset selection
+                        st.session_state.selected_day_idx = None
                         st.success("Successfully generated schedule!")
                         st.rerun()
                     except Exception as e:
@@ -340,6 +380,7 @@ with left_col:
         is_selected = (st.session_state.selected_day_idx == idx)
         card_class = "calendar-card selected-card" if is_selected else "calendar-card"
         
+        # HTML template of the card layout - margin-top: auto pushes the view recipe link down naturally
         col.markdown(f"""
         <div class="{card_class}">
             <div>
@@ -347,14 +388,14 @@ with left_col:
                 <span class="badge {badge_style}">{category}</span>
                 <p style="font-size: 1.1rem; font-weight: 600; margin: 6px 0; line-height: 1.3;">{recipe_name}</p>
             </div>
-            <a href="{yt_url}" target="_blank" style="text-decoration: none; color: #a8c0ff; font-weight: 500; font-size: 0.85rem;">📺 View Recipe</a>
+            <a href="{yt_url}" target="_blank" style="text-decoration: none; color: #a8c0ff; font-weight: 500; font-size: 0.85rem; margin-top: auto;">📺 View Recipe</a>
         </div>
         """, unsafe_allow_html=True)
         
         # Selection button inside the card layout column
         if col.button("📋 Select Day" if not is_selected else "✅ Selected", key=f"select_{idx}", use_container_width=True):
             if is_selected:
-                st.session_state.selected_day_idx = None  # Deselect on second click
+                st.session_state.selected_day_idx = None
             else:
                 st.session_state.selected_day_idx = idx
             st.rerun()
@@ -400,73 +441,101 @@ with left_col:
     except Exception as e:
         st.error(f"An error occurred while compiling the grocery list: {e}")
 
-# Right Column: Chef Concierge Chat
+# Right Column: Chef Concierge Chat inside a bordered container with min-height alignment
 with right_col:
-    st.markdown('<div class="chat-panel">', unsafe_allow_html=True)
-    st.subheader("💬 Chef Concierge")
-    st.caption("Customize your menu here. Ask to replace recipes or tag dislikes.")
-    
-    # Render Chat History
-    for msg in st.session_state.messages:
-        with st.chat_message(msg["role"]):
-            st.write(msg["content"])
-            
-    # Input field
-    if user_prompt := st.chat_input("Suggest a change..."):
-        # Reset day selection on new chat request to focus back to week view
-        st.session_state.selected_day_idx = None
+    with st.container(border=True):
+        st.subheader("💬 Chef Concierge")
+        st.caption("Customize your menu here. Ask to replace recipes or tag dislikes.")
         
-        # Programmatic parsing for dislikes/exclusions
-        msg_lower = user_prompt.lower()
-        disliked_detected = []
-        
-        planner = BreakfastPlanner()
-        # Find closest match for dislikes in database using sequence matching (typo tolerance)
-        if any(w in msg_lower for w in ["don't like", "dislike", "remove", "exclude", "never show"]):
-            matched_recipe = find_best_recipe_match(user_prompt, planner.recipes)
-            if matched_recipe:
-                disliked_detected.append(matched_recipe)
-                    
-        # Add to session state
-        for d in disliked_detected:
-            if d not in st.session_state.disliked_recipes:
-                st.session_state.disliked_recipes.append(d)
+        # Filter chat messages to only show the last user message and its response
+        display_messages = []
+        user_msgs = [m for m in st.session_state.messages if m["role"] == "user"]
+        if user_msgs:
+            last_user = user_msgs[-1]
+            try:
+                last_user_idx = st.session_state.messages.index(last_user)
+                display_messages.append(last_user)
+                # Add any assistant messages that came after it
+                for msg in st.session_state.messages[last_user_idx+1:]:
+                    if msg["role"] == "assistant":
+                        display_messages.append(msg)
+            except ValueError:
+                if st.session_state.messages:
+                    display_messages.append(st.session_state.messages[-1])
+        else:
+            # Just show the first welcome message
+            if st.session_state.messages:
+                display_messages.append(st.session_state.messages[0])
 
-        # Append user message
-        st.session_state.messages.append({"role": "user", "content": user_prompt})
-        with st.chat_message("user"):
-            st.write(user_prompt)
+        # Wrap the messages in a scrollable div using CSS styled markdown container
+        st.markdown('<div style="max-height: 380px; overflow-y: auto; padding-right: 5px; margin-bottom: 15px;">', unsafe_allow_html=True)
+        for msg in display_messages:
+            role = msg["role"]
+            avatar = "🧑‍🍳" if role == "assistant" else "👤"
+            with st.chat_message(role, avatar=avatar):
+                st.write(msg["content"])
+        st.markdown('</div>', unsafe_allow_html=True)
+                
+        # Input field
+        if user_prompt := st.chat_input("Suggest a change..."):
+            # Reset day selection on new chat request to focus back to week view
+            st.session_state.selected_day_idx = None
             
-        with st.chat_message("assistant"):
-            with st.spinner("Chef is thinking..."):
-                try:
-                    # Feed the current active plan and disliked list to the agent
-                    full_context = (
-                        st.session_state.prior_week + 
-                        st.session_state.current_week + 
-                        st.session_state.next_week
-                    )
-                    offset = 7 if st.session_state.current_week_idx == 1 else 14
-                    
-                    agent_reply, updated_plan = planner.process_chat_request(
-                        user_prompt, active_plan, st.session_state.disliked_recipes, full_context, offset
-                    )
-                    
-                    if disliked_detected:
-                        agent_reply += f"\n\n*(Added {', '.join(disliked_detected)} to your disliked list. I will exclude them going forward.)*"
-                    
-                    # Update session state plan based on the active index
-                    if st.session_state.current_week_idx == 1:
-                        st.session_state.current_week = updated_plan
-                    elif st.session_state.current_week_idx == 2:
-                        st.session_state.next_week = updated_plan
-                    
-                    st.write(agent_reply)
-                    st.session_state.messages.append({"role": "assistant", "content": agent_reply})
-                    st.rerun()
-                except Exception as e:
-                    err_msg = f"Sorry, I ran into an error adjusting your recipes: {e}"
-                    st.write(err_msg)
-                    st.session_state.messages.append({"role": "assistant", "content": err_msg})
-                    st.rerun()
-    st.markdown('</div>', unsafe_allow_html=True)
+            # Programmatic parsing for dislikes/exclusions
+            msg_lower = user_prompt.lower()
+            disliked_detected = []
+            
+            planner = BreakfastPlanner()
+            # Find closest match for dislikes in database using sequence matching (typo tolerance)
+            if any(w in msg_lower for w in ["don't like", "dislike", "remove", "exclude", "never show"]):
+                matched_recipe = find_best_recipe_match(user_prompt, planner.recipes)
+                if matched_recipe:
+                    disliked_detected.append(matched_recipe)
+                        
+            # Add to session state
+            for d in disliked_detected:
+                if d not in st.session_state.disliked_recipes:
+                    st.session_state.disliked_recipes.append(d)
+
+            # Append user message
+            st.session_state.messages.append({"role": "user", "content": user_prompt})
+            
+            # Render prompt on screen with User avatar
+            with st.chat_message("user", avatar="👤"):
+                st.write(user_prompt)
+                
+            with st.chat_message("assistant", avatar="🧑‍🍳"):
+                with st.spinner("working on it.."):
+                    try:
+                        # Feed the current active plan and disliked list to the agent
+                        full_context = (
+                            st.session_state.prior_week + 
+                            st.session_state.current_week + 
+                            st.session_state.next_week
+                        )
+                        offset = 7 if st.session_state.current_week_idx == 1 else 14
+                        
+                        agent_reply, updated_plan, updated_full_context, next_pending = planner.process_chat_request(
+                            user_prompt, active_plan, st.session_state.disliked_recipes, full_context, offset, st.session_state.pending_swap
+                        )
+                        
+                        st.session_state.pending_swap = next_pending
+                        
+                        if disliked_detected:
+                            agent_reply += f"\n\n*(Added {', '.join(disliked_detected)} to your disliked list. I will exclude them going forward.)*"
+                        
+                        # Update all session state plans based on the updated full context
+                        if updated_full_context:
+                            st.session_state.prior_week = updated_full_context[0:7]
+                            st.session_state.current_week = updated_full_context[7:14]
+                            st.session_state.next_week = updated_full_context[14:21]
+                        
+                        st.write(agent_reply)
+                        st.session_state.messages.append({"role": "assistant", "content": agent_reply})
+                        st.rerun()
+                    except Exception as e:
+                        err_msg = f"Sorry, I ran into an error adjusting your recipes: {e}"
+                        st.write(err_msg)
+                        st.session_state.messages.append({"role": "assistant", "content": err_msg})
+                        st.rerun()
+                st.markdown('</div>', unsafe_allow_html=True)
