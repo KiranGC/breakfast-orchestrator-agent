@@ -1,6 +1,8 @@
 [
     {
-        "name": "Masala Dosa",
+        "recipe_name": "Masala Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Dosa rice (parboiled rice)",
             "Urad dal",
@@ -19,10 +21,12 @@
             "Ginger",
             "Coriander leaves"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Masala%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Masala%20Dosa%20recipe"
     },
     {
-        "name": "Plain Dosa",
+        "recipe_name": "Plain Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Dosa rice (parboiled rice)",
             "Urad dal",
@@ -32,10 +36,12 @@
             "Water",
             "Oil"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Plain%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Plain%20Dosa%20recipe"
     },
     {
-        "name": "Set Dosa",
+        "recipe_name": "Set Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Idli rice",
             "Urad dal",
@@ -47,10 +53,12 @@
             "Sugar",
             "Eno fruit salt (optional)"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Set%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Set%20Dosa%20recipe"
     },
     {
-        "name": "Rava Dosa",
+        "recipe_name": "Rava Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -67,10 +75,12 @@
             "Coriander leaves",
             "Buttermilk/curd"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Rava%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Rava%20Dosa%20recipe"
     },
     {
-        "name": "Onion Uttapam",
+        "recipe_name": "Onion Uttapam",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Dosa rice (parboiled rice)",
             "Urad dal",
@@ -84,10 +94,12 @@
             "Tomato",
             "Coriander leaves"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Onion%20Uttapam%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Onion%20Uttapam%20recipe"
     },
     {
-        "name": "Mysore Masala Dosa",
+        "recipe_name": "Mysore Masala Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Dosa rice (parboiled rice)",
             "Urad dal",
@@ -105,10 +117,12 @@
             "Curry leaves",
             "Turmeric powder"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Mysore%20Masala%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Mysore%20Masala%20Dosa%20recipe"
     },
     {
-        "name": "Paper Dosa",
+        "recipe_name": "Paper Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Dosa rice (parboiled rice)",
             "Urad dal",
@@ -118,10 +132,12 @@
             "Water",
             "Oil"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Paper%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Paper%20Dosa%20recipe"
     },
     {
-        "name": "Pesarattu",
+        "recipe_name": "Pesarattu",
+        "category": "Others",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Water",
@@ -133,20 +149,24 @@
             "Cumin seeds",
             "Onion (chopped, optional topping)"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Pesarattu%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Pesarattu%20recipe"
     },
     {
-        "name": "Neer Dosa",
+        "recipe_name": "Neer Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Raw rice",
             "Salt",
             "Water",
             "Coconut (grated)"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Neer%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Neer%20Dosa%20recipe"
     },
     {
-        "name": "Adai",
+        "recipe_name": "Adai",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -160,10 +180,12 @@
             "Onion (optional)",
             "Coconut oil"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Adai%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Adai%20recipe"
     },
     {
-        "name": "Davanagere Benne Dosa",
+        "recipe_name": "Davanagere Benne Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Dosa rice (parboiled rice)",
             "Urad dal",
@@ -176,10 +198,12 @@
             "Onion",
             "Potato masala (optional)"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Davanagere%20Benne%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Davanagere%20Benne%20Dosa%20recipe"
     },
     {
-        "name": "Moong Dal Dosa",
+        "recipe_name": "Moong Dal Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -192,10 +216,12 @@
             "Asafoetida",
             "Onion (chopped, for topping)"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Moong%20Dal%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Moong%20Dal%20Dosa%20recipe"
     },
     {
-        "name": "Ragi Dosa",
+        "recipe_name": "Ragi Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -209,10 +235,12 @@
             "Coriander leaves",
             "Ginger"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Ragi%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Ragi%20Dosa%20recipe"
     },
     {
-        "name": "Jowar Dosa",
+        "recipe_name": "Jowar Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -225,10 +253,12 @@
             "Cumin seeds",
             "Coriander leaves"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Jowar%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Jowar%20Dosa%20recipe"
     },
     {
-        "name": "Curd Dosa",
+        "recipe_name": "Curd Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Dosa rice (parboiled rice)",
             "Urad dal",
@@ -239,10 +269,12 @@
             "Oil",
             "Curd"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Curd%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Curd%20Dosa%20recipe"
     },
     {
-        "name": "Surnoli",
+        "recipe_name": "Surnoli",
+        "category": "Others",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Curd",
@@ -251,10 +283,12 @@
             "Cumin seeds",
             "Eno fruit salt (optional)"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Surnoli%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Surnoli%20recipe"
     },
     {
-        "name": "Wheat Dosa (Godhuma Dosa)",
+        "recipe_name": "Wheat Dosa (Godhuma Dosa)",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -267,10 +301,12 @@
             "Green chilli",
             "Coriander leaves"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Wheat%20Dosa%20%28Godhuma%20Dosa%29%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Wheat%20Dosa%20%28Godhuma%20Dosa%29%20recipe"
     },
     {
-        "name": "Oats Dosa",
+        "recipe_name": "Oats Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -284,10 +320,12 @@
             "Coriander leaves",
             "Ginger"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Oats%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Oats%20Dosa%20recipe"
     },
     {
-        "name": "Quinoa Dosa",
+        "recipe_name": "Quinoa Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -296,10 +334,12 @@
             "Urad dal",
             "Fenugreek seeds"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Quinoa%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Quinoa%20Dosa%20recipe"
     },
     {
-        "name": "Bread Dosa",
+        "recipe_name": "Bread Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Oil",
@@ -312,10 +352,12 @@
             "Coriander leaves",
             "Cumin seeds"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Bread%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Bread%20Dosa%20recipe"
     },
     {
-        "name": "Idli",
+        "recipe_name": "Idli",
+        "category": "Idli",
+        "is_batter_based": true,
         "ingredients": [
             "Idli rice",
             "Urad dal",
@@ -324,10 +366,12 @@
             "Salt",
             "Water"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Idli%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Idli%20recipe"
     },
     {
-        "name": "Rava Idli",
+        "recipe_name": "Rava Idli",
+        "category": "Idli",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -343,10 +387,12 @@
             "Ginger",
             "Ghee"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Rava%20Idli%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Rava%20Idli%20recipe"
     },
     {
-        "name": "Kanchipuram Idli",
+        "recipe_name": "Kanchipuram Idli",
+        "category": "Idli",
+        "is_batter_based": true,
         "ingredients": [
             "Idli rice",
             "Urad dal",
@@ -362,10 +408,12 @@
             "Cashew nuts",
             "Ghee"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Kanchipuram%20Idli%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Kanchipuram%20Idli%20recipe"
     },
     {
-        "name": "Thatte Idli",
+        "recipe_name": "Thatte Idli",
+        "category": "Idli",
+        "is_batter_based": true,
         "ingredients": [
             "Idli rice",
             "Urad dal",
@@ -374,10 +422,12 @@
             "Salt",
             "Water"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Thatte%20Idli%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Thatte%20Idli%20recipe"
     },
     {
-        "name": "Mini Idli",
+        "recipe_name": "Mini Idli",
+        "category": "Idli",
+        "is_batter_based": true,
         "ingredients": [
             "Idli rice",
             "Urad dal",
@@ -386,20 +436,24 @@
             "Salt",
             "Water"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Mini%20Idli%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Mini%20Idli%20recipe"
     },
     {
-        "name": "Podi Idli",
+        "recipe_name": "Podi Idli",
+        "category": "Idli",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Idli",
             "Idli podi (gunpowder spice mix)",
             "Sesame oil/ghee"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Podi%20Idli%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Podi%20Idli%20recipe"
     },
     {
-        "name": "Sambar Idli",
+        "recipe_name": "Sambar Idli",
+        "category": "Idli",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Idli",
@@ -412,10 +466,12 @@
             "Asafoetida",
             "Turmeric powder"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Sambar%20Idli%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Sambar%20Idli%20recipe"
     },
     {
-        "name": "Ragi Idli",
+        "recipe_name": "Ragi Idli",
+        "category": "Idli",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -425,10 +481,12 @@
             "Curd",
             "Fenugreek seeds"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Ragi%20Idli%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Ragi%20Idli%20recipe"
     },
     {
-        "name": "Oats Idli",
+        "recipe_name": "Oats Idli",
+        "category": "Idli",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -441,10 +499,12 @@
             "Curry leaves",
             "Carrot (grated, optional)"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Oats%20Idli%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Oats%20Idli%20recipe"
     },
     {
-        "name": "Vegetable Idli",
+        "recipe_name": "Vegetable Idli",
+        "category": "Idli",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Idli batter",
@@ -455,10 +515,12 @@
             "Mustard seeds",
             "Curry leaves"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Vegetable%20Idli%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Vegetable%20Idli%20recipe"
     },
     {
-        "name": "Medu Vada",
+        "recipe_name": "Medu Vada",
+        "category": "Vada",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Oil (for deep frying)",
@@ -472,10 +534,12 @@
             "Onion (chopped, optional)",
             "Asafoetida"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Medu%20Vada%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Medu%20Vada%20recipe"
     },
     {
-        "name": "Masala Vada",
+        "recipe_name": "Masala Vada",
+        "category": "Vada",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Oil (for deep frying)",
@@ -489,10 +553,12 @@
             "Coriander leaves",
             "Asafoetida"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Masala%20Vada%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Masala%20Vada%20recipe"
     },
     {
-        "name": "Sambar Vada",
+        "recipe_name": "Sambar Vada",
+        "category": "Vada",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Medu vada",
@@ -503,10 +569,12 @@
             "Mustard seeds",
             "Curry leaves"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Sambar%20Vada%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Sambar%20Vada%20recipe"
     },
     {
-        "name": "Dahi Vada (Thair Vadai)",
+        "recipe_name": "Dahi Vada (Thair Vadai)",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Oil (for deep frying)",
@@ -520,10 +588,12 @@
             "Mustard seeds",
             "Curry leaves"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Dahi%20Vada%20%28Thair%20Vadai%29%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Dahi%20Vada%20%28Thair%20Vadai%29%20recipe"
     },
     {
-        "name": "Paruppu Vadai",
+        "recipe_name": "Paruppu Vadai",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Oil (for deep frying)",
@@ -536,10 +606,12 @@
             "Ginger",
             "Asafoetida"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Paruppu%20Vadai%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Paruppu%20Vadai%20recipe"
     },
     {
-        "name": "Keerai Vadai",
+        "recipe_name": "Keerai Vadai",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Oil (for deep frying)",
@@ -552,10 +624,12 @@
             "Ginger",
             "Asafoetida"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Keerai%20Vadai%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Keerai%20Vadai%20recipe"
     },
     {
-        "name": "Cabbage Vada",
+        "recipe_name": "Cabbage Vada",
+        "category": "Vada",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Oil (for deep frying)",
@@ -568,10 +642,12 @@
             "Ginger",
             "Asafoetida"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Cabbage%20Vada%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Cabbage%20Vada%20recipe"
     },
     {
-        "name": "Maddur Vada",
+        "recipe_name": "Maddur Vada",
+        "category": "Vada",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Oil (for deep frying)",
@@ -584,10 +660,12 @@
             "Cumin seeds",
             "Asafoetida"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Maddur%20Vada%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Maddur%20Vada%20recipe"
     },
     {
-        "name": "Goli Baje (Mangalore Bonda)",
+        "recipe_name": "Goli Baje (Mangalore Bonda)",
+        "category": "Bonda",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Oil (for deep frying)",
@@ -601,10 +679,12 @@
             "Coriander leaves",
             "Baking soda/Eno"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Goli%20Baje%20%28Mangalore%20Bonda%29%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Goli%20Baje%20%28Mangalore%20Bonda%29%20recipe"
     },
     {
-        "name": "Mysore Bonda",
+        "recipe_name": "Mysore Bonda",
+        "category": "Bonda",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Oil (for deep frying)",
@@ -618,10 +698,12 @@
             "Ginger",
             "Baking soda"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Mysore%20Bonda%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Mysore%20Bonda%20recipe"
     },
     {
-        "name": "Aloo Bonda",
+        "recipe_name": "Aloo Bonda",
+        "category": "Bonda",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Oil (for deep frying)",
@@ -637,10 +719,12 @@
             "Asafoetida",
             "Rice flour"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Aloo%20Bonda%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Aloo%20Bonda%20recipe"
     },
     {
-        "name": "Mor Kuzhambu Vada",
+        "recipe_name": "Mor Kuzhambu Vada",
+        "category": "Vada",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Urad dal vada",
@@ -653,10 +737,12 @@
             "Asafoetida",
             "Turmeric powder"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Mor%20Kuzhambu%20Vada%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Mor%20Kuzhambu%20Vada%20recipe"
     },
     {
-        "name": "Rava Upma",
+        "recipe_name": "Rava Upma",
+        "category": "Upma",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Water",
@@ -672,10 +758,12 @@
             "Ghee",
             "Cashew nuts"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Rava%20Upma%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Rava%20Upma%20recipe"
     },
     {
-        "name": "Vegetable Upma",
+        "recipe_name": "Vegetable Upma",
+        "category": "Upma",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Water",
@@ -690,10 +778,12 @@
             "Green chilli",
             "Ginger"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Vegetable%20Upma%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Vegetable%20Upma%20recipe"
     },
     {
-        "name": "Semiya Upma (Vermicelli Upma)",
+        "recipe_name": "Semiya Upma (Vermicelli Upma)",
+        "category": "Upma",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Water",
@@ -707,10 +797,12 @@
             "Urad dal (for tempering)",
             "Carrot (optional)"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Semiya%20Upma%20%28Vermicelli%20Upma%29%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Semiya%20Upma%20%28Vermicelli%20Upma%29%20recipe"
     },
     {
-        "name": "Oats Upma",
+        "recipe_name": "Oats Upma",
+        "category": "Upma",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Water",
@@ -723,10 +815,12 @@
             "Green chilli",
             "Ginger"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Oats%20Upma%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Oats%20Upma%20recipe"
     },
     {
-        "name": "Poha Upma (Avalakki Uppittu)",
+        "recipe_name": "Poha Upma (Avalakki Uppittu)",
+        "category": "Upma",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Water",
@@ -741,10 +835,12 @@
             "Lemon juice",
             "Coriander leaves"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Poha%20Upma%20%28Avalakki%20Uppittu%29%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Poha%20Upma%20%28Avalakki%20Uppittu%29%20recipe"
     },
     {
-        "name": "Rava Kesari Bath",
+        "recipe_name": "Rava Kesari Bath",
+        "category": "Kesari",
+        "is_batter_based": false,
         "ingredients": [
             "Water",
             "Salt (pinch)",
@@ -757,10 +853,12 @@
             "Saffron strands (optional)",
             "Food colour (optional)"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Rava%20Kesari%20Bath%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Rava%20Kesari%20Bath%20recipe"
     },
     {
-        "name": "Ragi Upma",
+        "recipe_name": "Ragi Upma",
+        "category": "Upma",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Water",
@@ -772,10 +870,12 @@
             "Curry leaves",
             "Ginger"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Ragi%20Upma%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Ragi%20Upma%20recipe"
     },
     {
-        "name": "Bread Upma",
+        "recipe_name": "Bread Upma",
+        "category": "Upma",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Water",
@@ -789,10 +889,12 @@
             "Lemon juice",
             "Coriander leaves"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Bread%20Upma%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Bread%20Upma%20recipe"
     },
     {
-        "name": "Tomato Bath",
+        "recipe_name": "Tomato Bath",
+        "category": "Rice/Bath",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Water",
@@ -806,10 +908,12 @@
             "Ginger-garlic paste",
             "Coriander leaves"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Tomato%20Bath%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Tomato%20Bath%20recipe"
     },
     {
-        "name": "Ven Pongal (Khara Pongal)",
+        "recipe_name": "Ven Pongal (Khara Pongal)",
+        "category": "Pongal",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Water",
@@ -823,10 +927,12 @@
             "Curry leaves",
             "Asafoetida"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Ven%20Pongal%20%28Khara%20Pongal%29%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Ven%20Pongal%20%28Khara%20Pongal%29%20recipe"
     },
     {
-        "name": "Sweet Pongal (Sakkarai Pongal)",
+        "recipe_name": "Sweet Pongal (Sakkarai Pongal)",
+        "category": "Pongal",
+        "is_batter_based": false,
         "ingredients": [
             "Water",
             "Raw rice",
@@ -838,10 +944,12 @@
             "Cardamom powder",
             "Edible camphor (optional)"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Sweet%20Pongal%20%28Sakkarai%20Pongal%29%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Sweet%20Pongal%20%28Sakkarai%20Pongal%29%20recipe"
     },
     {
-        "name": "Milagu Pongal (Pepper Pongal)",
+        "recipe_name": "Milagu Pongal (Pepper Pongal)",
+        "category": "Pongal",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Water",
@@ -853,10 +961,12 @@
             "Curry leaves",
             "Asafoetida"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Milagu%20Pongal%20%28Pepper%20Pongal%29%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Milagu%20Pongal%20%28Pepper%20Pongal%29%20recipe"
     },
     {
-        "name": "Kuzhi Paniyaram",
+        "recipe_name": "Kuzhi Paniyaram",
+        "category": "Paniyaram",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Oil (for cooking)",
@@ -868,10 +978,12 @@
             "Carrot (optional)",
             "Oil"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Kuzhi%20Paniyaram%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Kuzhi%20Paniyaram%20recipe"
     },
     {
-        "name": "Sweet Paniyaram",
+        "recipe_name": "Sweet Paniyaram",
+        "category": "Paniyaram",
+        "is_batter_based": true,
         "ingredients": [
             "Salt (pinch)",
             "Rice",
@@ -881,10 +993,12 @@
             "Cardamom powder",
             "Oil/ghee"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Sweet%20Paniyaram%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Sweet%20Paniyaram%20recipe"
     },
     {
-        "name": "Kara Paniyaram",
+        "recipe_name": "Kara Paniyaram",
+        "category": "Paniyaram",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Oil (for cooking)",
@@ -896,10 +1010,12 @@
             "Curry leaves",
             "Coriander leaves"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Kara%20Paniyaram%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Kara%20Paniyaram%20recipe"
     },
     {
-        "name": "Vellai Paniyaram",
+        "recipe_name": "Vellai Paniyaram",
+        "category": "Paniyaram",
+        "is_batter_based": true,
         "ingredients": [
             "Salt (pinch)",
             "Rice flour",
@@ -908,20 +1024,24 @@
             "Coconut (grated)",
             "Cardamom powder"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Vellai%20Paniyaram%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Vellai%20Paniyaram%20recipe"
     },
     {
-        "name": "Idiyappam",
+        "recipe_name": "Idiyappam",
+        "category": "Appam",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
             "Rice flour",
             "Coconut oil"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Idiyappam%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Idiyappam%20recipe"
     },
     {
-        "name": "Idiyappam with Coconut Milk",
+        "recipe_name": "Idiyappam with Coconut Milk",
+        "category": "Appam",
+        "is_batter_based": true,
         "ingredients": [
             "Salt (pinch)",
             "Water",
@@ -930,10 +1050,12 @@
             "Sugar",
             "Cardamom powder"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Idiyappam%20with%20Coconut%20Milk%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Idiyappam%20with%20Coconut%20Milk%20recipe"
     },
     {
-        "name": "Appam",
+        "recipe_name": "Appam",
+        "category": "Appam",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -943,10 +1065,12 @@
             "Yeast or toddy",
             "Sugar"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Appam%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Appam%20recipe"
     },
     {
-        "name": "Vellayappam with Stew",
+        "recipe_name": "Vellayappam with Stew",
+        "category": "Appam",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Coconut oil",
@@ -961,20 +1085,24 @@
             "Whole spices (cinnamon, cloves, cardamom)",
             "Curry leaves"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Vellayappam%20with%20Stew%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Vellayappam%20with%20Stew%20recipe"
     },
     {
-        "name": "Puttu",
+        "recipe_name": "Puttu",
+        "category": "Puttu",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Water",
             "Rice flour",
             "Coconut (grated)"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Puttu%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Puttu%20recipe"
     },
     {
-        "name": "Puttu with Kadala Curry",
+        "recipe_name": "Puttu with Kadala Curry",
+        "category": "Puttu",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Water",
@@ -990,10 +1118,12 @@
             "Red chilli powder",
             "Coriander powder"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Puttu%20with%20Kadala%20Curry%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Puttu%20with%20Kadala%20Curry%20recipe"
     },
     {
-        "name": "Kallappam",
+        "recipe_name": "Kallappam",
+        "category": "Appam",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -1003,10 +1133,12 @@
             "Yeast",
             "Cumin seeds"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Kallappam%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Kallappam%20recipe"
     },
     {
-        "name": "Vattayappam",
+        "recipe_name": "Vattayappam",
+        "category": "Appam",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -1016,10 +1148,12 @@
             "Yeast",
             "Cardamom powder"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Vattayappam%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Vattayappam%20recipe"
     },
     {
-        "name": "Pesarattu with Upma",
+        "recipe_name": "Pesarattu with Upma",
+        "category": "Upma",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Water",
@@ -1031,10 +1165,12 @@
             "Cumin seeds",
             "Rava upma (as side)"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Pesarattu%20with%20Upma%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Pesarattu%20with%20Upma%20recipe"
     },
     {
-        "name": "Akki Rotti",
+        "recipe_name": "Akki Rotti",
+        "category": "Roti",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Oil",
@@ -1048,10 +1184,12 @@
             "Coconut (grated, optional)",
             "Ginger"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Akki%20Rotti%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Akki%20Rotti%20recipe"
     },
     {
-        "name": "Ragi Rotti",
+        "recipe_name": "Ragi Rotti",
+        "category": "Roti",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Oil",
@@ -1064,19 +1202,23 @@
             "Cumin seeds",
             "Curd (optional)"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Ragi%20Rotti%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Ragi%20Rotti%20recipe"
     },
     {
-        "name": "Jolada Rotti (Jowar Roti)",
+        "recipe_name": "Jolada Rotti (Jowar Roti)",
+        "category": "Roti",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Jowar (sorghum) flour",
             "Water"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Jolada%20Rotti%20%28Jowar%20Roti%29%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Jolada%20Rotti%20%28Jowar%20Roti%29%20recipe"
     },
     {
-        "name": "Sajjige (Rava Kesari)",
+        "recipe_name": "Sajjige (Rava Kesari)",
+        "category": "Kesari",
+        "is_batter_based": false,
         "ingredients": [
             "Water",
             "Salt (pinch)",
@@ -1087,10 +1229,12 @@
             "Raisins",
             "Cardamom powder"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Sajjige%20%28Rava%20Kesari%29%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Sajjige%20%28Rava%20Kesari%29%20recipe"
     },
     {
-        "name": "Curd Rice (Thayir Sadam)",
+        "recipe_name": "Curd Rice (Thayir Sadam)",
+        "category": "Rice",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Oil/ghee",
@@ -1104,10 +1248,12 @@
             "Green chilli",
             "Pomegranate (optional garnish)"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Curd%20Rice%20%28Thayir%20Sadam%29%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Curd%20Rice%20%28Thayir%20Sadam%29%20recipe"
     },
     {
-        "name": "Lemon Rice (Chitranna)",
+        "recipe_name": "Lemon Rice (Chitranna)",
+        "category": "Rice",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Oil/ghee",
@@ -1121,10 +1267,12 @@
             "Green chilli",
             "Asafoetida"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Lemon%20Rice%20%28Chitranna%29%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Lemon%20Rice%20%28Chitranna%29%20recipe"
     },
     {
-        "name": "Tamarind Rice (Puliyodarai)",
+        "recipe_name": "Tamarind Rice (Puliyodarai)",
+        "category": "Rice",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Oil/ghee",
@@ -1139,10 +1287,12 @@
             "Asafoetida",
             "Jaggery"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Tamarind%20Rice%20%28Puliyodarai%29%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Tamarind%20Rice%20%28Puliyodarai%29%20recipe"
     },
     {
-        "name": "Coconut Rice",
+        "recipe_name": "Coconut Rice",
+        "category": "Rice",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Oil/ghee",
@@ -1155,10 +1305,12 @@
             "Green chilli",
             "Asafoetida"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Coconut%20Rice%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Coconut%20Rice%20recipe"
     },
     {
-        "name": "Bisi Bele Bath",
+        "recipe_name": "Bisi Bele Bath",
+        "category": "Rice/Bath",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Oil/ghee",
@@ -1173,10 +1325,12 @@
             "Cashew nuts",
             "Asafoetida"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Bisi%20Bele%20Bath%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Bisi%20Bele%20Bath%20recipe"
     },
     {
-        "name": "Vangi Bath",
+        "recipe_name": "Vangi Bath",
+        "category": "Rice/Bath",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Oil/ghee",
@@ -1189,10 +1343,12 @@
             "Curry leaves",
             "Asafoetida"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Vangi%20Bath%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Vangi%20Bath%20recipe"
     },
     {
-        "name": "Sabudana Khichdi",
+        "recipe_name": "Sabudana Khichdi",
+        "category": "Rice/Bath",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Water",
@@ -1205,10 +1361,12 @@
             "Lemon juice",
             "Ghee"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Sabudana%20Khichdi%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Sabudana%20Khichdi%20recipe"
     },
     {
-        "name": "Rava Kichadi",
+        "recipe_name": "Rava Kichadi",
+        "category": "Rice/Bath",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Water",
@@ -1222,10 +1380,12 @@
             "Green chilli",
             "Ginger"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Rava%20Kichadi%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Rava%20Kichadi%20recipe"
     },
     {
-        "name": "Verkadalai Sundal",
+        "recipe_name": "Verkadalai Sundal",
+        "category": "Sundal",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Oil",
@@ -1236,10 +1396,12 @@
             "Green chilli",
             "Asafoetida"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Verkadalai%20Sundal%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Verkadalai%20Sundal%20recipe"
     },
     {
-        "name": "Channa Sundal",
+        "recipe_name": "Channa Sundal",
+        "category": "Sundal",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Oil",
@@ -1250,10 +1412,12 @@
             "Green chilli",
             "Asafoetida"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Channa%20Sundal%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Channa%20Sundal%20recipe"
     },
     {
-        "name": "Kozhukattai (Modak)",
+        "recipe_name": "Kozhukattai (Modak)",
+        "category": "Kozhukattai",
+        "is_batter_based": false,
         "ingredients": [
             "Salt (pinch)",
             "Water",
@@ -1263,10 +1427,12 @@
             "Cardamom powder",
             "Ghee"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Kozhukattai%20%28Modak%29%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Kozhukattai%20%28Modak%29%20recipe"
     },
     {
-        "name": "Uppu Kozhukattai (Savory Modak)",
+        "recipe_name": "Uppu Kozhukattai (Savory Modak)",
+        "category": "Kozhukattai",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Water",
@@ -1277,10 +1443,12 @@
             "Coconut (grated)",
             "Asafoetida"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Uppu%20Kozhukattai%20%28Savory%20Modak%29%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Uppu%20Kozhukattai%20%28Savory%20Modak%29%20recipe"
     },
     {
-        "name": "Ragi Java (Ragi Porridge)",
+        "recipe_name": "Ragi Java (Ragi Porridge)",
+        "category": "Porridge",
+        "is_batter_based": false,
         "ingredients": [
             "Salt (to taste)",
             "Water",
@@ -1290,10 +1458,12 @@
             "Cumin seeds",
             "Curry leaves (optional)"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Ragi%20Java%20%28Ragi%20Porridge%29%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Ragi%20Java%20%28Ragi%20Porridge%29%20recipe"
     },
     {
-        "name": "Semiya Kesari",
+        "recipe_name": "Semiya Kesari",
+        "category": "Kesari",
+        "is_batter_based": false,
         "ingredients": [
             "Water",
             "Salt (pinch)",
@@ -1304,10 +1474,12 @@
             "Raisins",
             "Cardamom powder"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Semiya%20Kesari%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Semiya%20Kesari%20recipe"
     },
     {
-        "name": "Rava Pongal",
+        "recipe_name": "Rava Pongal",
+        "category": "Pongal",
+        "is_batter_based": false,
         "ingredients": [
             "Salt",
             "Water",
@@ -1320,10 +1492,12 @@
             "Cashew nuts",
             "Asafoetida"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Rava%20Pongal%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Rava%20Pongal%20recipe"
     },
     {
-        "name": "Adai with Aviyal",
+        "recipe_name": "Adai with Aviyal",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -1339,10 +1513,12 @@
             "Curd",
             "Cumin seeds"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Adai%20with%20Aviyal%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Adai%20with%20Aviyal%20recipe"
     },
     {
-        "name": "Adai with Jaggery",
+        "recipe_name": "Adai with Jaggery",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -1355,10 +1531,12 @@
             "Cardamom powder",
             "Ghee"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Adai%20with%20Jaggery%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Adai%20with%20Jaggery%20recipe"
     },
     {
-        "name": "Foxtail Millet Dosa",
+        "recipe_name": "Foxtail Millet Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -1367,10 +1545,12 @@
             "Urad dal",
             "Fenugreek seeds"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Foxtail%20Millet%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Foxtail%20Millet%20Dosa%20recipe"
     },
     {
-        "name": "Bajra Dosa (Pearl Millet Dosa)",
+        "recipe_name": "Bajra Dosa (Pearl Millet Dosa)",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -1382,10 +1562,12 @@
             "Onion",
             "Green chilli"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Bajra%20Dosa%20%28Pearl%20Millet%20Dosa%29%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Bajra%20Dosa%20%28Pearl%20Millet%20Dosa%29%20recipe"
     },
     {
-        "name": "Bajra Idli",
+        "recipe_name": "Bajra Idli",
+        "category": "Idli",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -1395,10 +1577,12 @@
             "Curd",
             "Fenugreek seeds"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Bajra%20Idli%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Bajra%20Idli%20recipe"
     },
     {
-        "name": "Banana Dosa (Sweet)",
+        "recipe_name": "Banana Dosa (Sweet)",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt (pinch)",
             "Oil/ghee",
@@ -1408,10 +1592,12 @@
             "Cardamom powder",
             "Ghee"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Banana%20Dosa%20%28Sweet%29%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Banana%20Dosa%20%28Sweet%29%20recipe"
     },
     {
-        "name": "Egg Dosa",
+        "recipe_name": "Egg Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Dosa rice (parboiled rice)",
             "Urad dal",
@@ -1425,10 +1611,12 @@
             "Pepper powder",
             "Coriander leaves"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Egg%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Egg%20Dosa%20recipe"
     },
     {
-        "name": "Cheese Dosa",
+        "recipe_name": "Cheese Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Dosa rice (parboiled rice)",
             "Urad dal",
@@ -1440,10 +1628,12 @@
             "Cheese (grated)",
             "Butter"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Cheese%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Cheese%20Dosa%20recipe"
     },
     {
-        "name": "Spinach Dosa (Keerai Dosa)",
+        "recipe_name": "Spinach Dosa (Keerai Dosa)",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -1454,10 +1644,12 @@
             "Cumin seeds",
             "Ginger"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Spinach%20Dosa%20%28Keerai%20Dosa%29%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Spinach%20Dosa%20%28Keerai%20Dosa%29%20recipe"
     },
     {
-        "name": "Beetroot Dosa",
+        "recipe_name": "Beetroot Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -1467,10 +1659,12 @@
             "Cumin seeds",
             "Green chilli"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Beetroot%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Beetroot%20Dosa%20recipe"
     },
     {
-        "name": "Carrot Dosa",
+        "recipe_name": "Carrot Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -1481,10 +1675,12 @@
             "Green chilli",
             "Ginger"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Carrot%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Carrot%20Dosa%20recipe"
     },
     {
-        "name": "Tomato Dosa",
+        "recipe_name": "Tomato Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -1495,10 +1691,12 @@
             "Cumin seeds",
             "Garlic"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Tomato%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Tomato%20Dosa%20recipe"
     },
     {
-        "name": "Moong Sprouts Dosa",
+        "recipe_name": "Moong Sprouts Dosa",
+        "category": "Dosa",
+        "is_batter_based": true,
         "ingredients": [
             "Salt",
             "Water",
@@ -1509,10 +1707,12 @@
             "Green chilli",
             "Ginger"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Moong%20Sprouts%20Dosa%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Moong%20Sprouts%20Dosa%20recipe"
     },
     {
-        "name": "Mangalore Buns",
+        "recipe_name": "Mangalore Buns",
+        "category": "Buns",
+        "is_batter_based": false,
         "ingredients": [
             "Salt (pinch)",
             "Maida",
@@ -1523,6 +1723,6 @@
             "Baking soda",
             "Oil (for frying)"
         ],
-        "youtube_link": "https://www.youtube.com/results?search_query=Mangalore%20Buns%20recipe"
+        "Youtube_url": "https://www.youtube.com/results?search_query=Mangalore%20Buns%20recipe"
     }
 ]
