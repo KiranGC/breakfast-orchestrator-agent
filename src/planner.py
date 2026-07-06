@@ -300,15 +300,44 @@ class BreakfastPlanner:
                 target_day_idx = d_idx
                 break
 
+        # Check if user requested a "replace <recipe>" or "replace <recipe1> with <recipe2>"
+        replace_mode = False
+        if "replace" in msg_lower:
+            # Look for which recipe in the current week's plan is mentioned in the user message
+            for idx, entry in enumerate(new_plan):
+                rec_name = entry.get("recipe_name", "")
+                if rec_name.lower() in msg_lower:
+                    target_day_idx = idx
+                    replace_mode = True
+                    break
+            
+            # If we matched a recipe from the current week's plan, check if we have an alternate replacement recipe
+            if replace_mode:
+                if "with" in msg_lower:
+                    parts = msg_lower.split("with", 1)
+                    after_with = parts[1].strip()
+                    specific_recipe = find_best_recipe_match(after_with, self.recipes)
+                else:
+                    specific_recipe = None
+
         # Parse category requested
         target_category = None
+        category_search_text = msg_lower
+        if replace_mode:
+            if "with" in msg_lower:
+                parts = msg_lower.split("with", 1)
+                category_search_text = parts[1]
+            else:
+                category_search_text = ""
+
         for cat in ["dosa", "idli", "vada", "upma", "pongal", "rice", "appam", "paniyaram", "bonda", "roti", "sundal"]:
-            if cat in msg_lower:
+            if cat in category_search_text:
                 target_category = cat
                 break
 
-        # Check if a specific recipe name was matched
-        specific_recipe = find_best_recipe_match(user_message, self.recipes)
+        # Check if a specific recipe name was matched (only if not already override matched in replace mode)
+        if not replace_mode:
+            specific_recipe = find_best_recipe_match(user_message, self.recipes)
         allowed_repeats = set()
 
         # 1. Handle sick/unwell requests
@@ -333,6 +362,22 @@ class BreakfastPlanner:
                 candidates = [r for r in self.recipes if target_category in r.get("category", "").lower() and r.get("recipe_name") not in disliked_set]
                 if candidates:
                     recipe = random.choice(candidates)
+            
+            # Fallback if no specific recipe or category matched (e.g. they wrote "replace Appam")
+            if not recipe:
+                old_name = new_plan[target_day_idx].get("recipe_name")
+                candidates = [r for r in self.recipes if r.get("recipe_name") not in disliked_set and r.get("recipe_name") != old_name]
+                random.shuffle(candidates)
+                for r in candidates:
+                    temp_plan = [dict(d) for d in new_plan]
+                    temp_plan[target_day_idx]["recipe_name"] = r.get("recipe_name")
+                    temp_plan[target_day_idx]["category"] = r.get("category")
+                    temp_plan[target_day_idx]["is_batter_based"] = r.get("is_batter_based")
+                    temp_plan[target_day_idx]["Youtube_url"] = r.get("Youtube_url")
+                    
+                    if self.validate_plan(temp_plan, disliked_set, full_context_plan, target_offset):
+                        recipe = r
+                        break
             
             if recipe:
                 # Check if it was prepared in previous week (global index 0 to 6)
@@ -359,11 +404,16 @@ class BreakfastPlanner:
                     return resp_text, current_plan, full_context_plan, next_pending
                 
                 # Otherwise perform the swap immediately
+                old_recipe_name = new_plan[target_day_idx]["recipe_name"]
                 new_plan[target_day_idx]["recipe_name"] = recipe.get("recipe_name")
                 new_plan[target_day_idx]["category"] = recipe.get("category")
                 new_plan[target_day_idx]["is_batter_based"] = recipe.get("is_batter_based")
                 new_plan[target_day_idx]["Youtube_url"] = recipe.get("Youtube_url")
-                resp_text = f"I have swapped {new_plan[target_day_idx]['day_name']}'s breakfast to {recipe.get('recipe_name')}."
+                
+                if replace_mode:
+                    resp_text = f"I have replaced {old_recipe_name} on {new_plan[target_day_idx]['day_name']} with {recipe.get('recipe_name')}."
+                else:
+                    resp_text = f"I have swapped {new_plan[target_day_idx]['day_name']}'s breakfast to {recipe.get('recipe_name')}."
                 
                 # Register override for explicit user selection repeat
                 allowed_repeats.add(recipe.get("recipe_name"))

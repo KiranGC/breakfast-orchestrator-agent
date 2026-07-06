@@ -264,13 +264,8 @@ with col_nav:
 
 with col_gear:
     # Gear popover replaces sidebar
-    with st.popover("⚙️", help="Configure Keys & Disliked Recipes"):
+    with st.popover("⚙️", help="Configure Exclusions"):
         st.markdown("### Settings")
-        gemini_key = st.text_input("Gemini API Key", type="password", value=os.environ.get("GEMINI_API_KEY", ""))
-        if gemini_key:
-            os.environ["GEMINI_API_KEY"] = gemini_key
-            
-        st.markdown("---")
         st.markdown("#### Disliked Recipes (Excluded)")
         if st.session_state.disliked_recipes:
             for item in st.session_state.disliked_recipes:
