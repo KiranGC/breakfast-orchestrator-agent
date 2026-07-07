@@ -75,12 +75,14 @@ class BreakfastPlanner:
                     
         return True
 
-    def generate_fallback_plan(self, disliked_recipes=None, full_context_plan=None, target_offset=0):
+    def generate_fallback_plan(self, disliked_recipes=None, full_context_plan=None, target_offset=0, pinned=None):
         """Generates a valid 7-day plan using a rule-based constraint solver."""
         disliked = set(disliked_recipes or [])
         allowed_recipes = [r for r in self.recipes if r.get("recipe_name") not in disliked]
         if not allowed_recipes:
             allowed_recipes = self.recipes
+        if pinned is None:
+            pinned = {}
 
         days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         plan = []
@@ -98,34 +100,39 @@ class BreakfastPlanner:
         for idx, day in enumerate(days):
             global_idx = target_offset + idx
             
-            # Find eligible recipes
-            eligible = []
-            for r in allowed_recipes:
-                r_name = r.get("recipe_name")
-                is_batter = r.get("is_batter_based", False)
-                category = r.get("category", "")
-                
-                # Check batter constraints
-                if is_batter:
-                    if idx - last_batter_idx <= 3:
-                        if last_batter_category and category != last_batter_category:
-                            continue
-                            
-                # Check 15-day cooling-off constraint
-                conflict = False
-                for check_idx in range(max(0, global_idx - 14), min(len(context_names), global_idx + 15)):
-                    if check_idx != global_idx and check_idx < len(context_names) and context_names[check_idx] == r_name:
-                        conflict = True
-                        break
-                if conflict:
-                    continue
+            if idx in pinned:
+                recipe = pinned[idx]
+            else:
+                # Find eligible recipes
+                eligible = []
+                for r in allowed_recipes:
+                    r_name = r.get("recipe_name")
+                    is_batter = r.get("is_batter_based", False)
+                    category = r.get("category", "")
                     
-                eligible.append(r)
-                
-            if not eligible:
-                eligible = allowed_recipes
-                
-            recipe = random.choice(eligible)
+                    # Check batter constraints
+                    if is_batter:
+                        if idx - last_batter_idx <= 3:
+                            if last_batter_category and category != last_batter_category:
+                                continue
+                                
+                    # Check 15-day cooling-off constraint
+                    conflict = False
+                    pinned_names = {pr.get("recipe_name") for pr in pinned.values()}
+                    for check_idx in range(max(0, global_idx - 14), min(len(context_names), global_idx + 15)):
+                        if check_idx != global_idx and check_idx < len(context_names) and context_names[check_idx] == r_name:
+                            if r_name not in pinned_names:
+                                conflict = True
+                                break
+                    if conflict:
+                        continue
+                        
+                    eligible.append(r)
+                    
+                if not eligible:
+                    eligible = allowed_recipes
+                    
+                recipe = random.choice(eligible)
             
             is_batter = recipe.get("is_batter_based", False)
             if is_batter:
@@ -235,6 +242,10 @@ class BreakfastPlanner:
                 agent_resp = data.get("agent_response", "I have updated the schedule for you.")
                 
                 if self.validate_plan(updated_plan, disliked, full_context_plan, target_offset) and len(updated_plan) == 7:
+                    if full_context_plan:
+                        for idx in range(7):
+                            if target_offset + idx < len(full_context_plan):
+                                full_context_plan[target_offset + idx] = updated_plan[idx]
                     return agent_resp, updated_plan, full_context_plan, None
             except Exception:
                 pass
@@ -290,46 +301,64 @@ class BreakfastPlanner:
                                 full_context_plan[check_idx]["is_batter_based"] = alternative.get("is_batter_based")
                                 full_context_plan[check_idx]["Youtube_url"] = alternative.get("Youtube_url")
                                 resp_text += f" Also revised upcoming week's plan on {full_context_plan[check_idx]['day_name']} to replace duplicate {recipe.get('recipe_name')}."
+                
+                # Check if confirmation caused side-effect violations (e.g. batter category or repeat violations)
+                allowed_repeats = {recipe.get("recipe_name")}
+                if not self.validate_plan(new_plan, disliked, full_context_plan, target_offset, allowed_repeats=allowed_repeats):
+                    new_plan = self.generate_fallback_plan(disliked, full_context_plan, target_offset, pinned={target_day_idx: recipe})
+                    resp_text = f"Confirmed! I have added {recipe.get('recipe_name')} for {new_plan[target_day_idx]['day_name']}, and adjusted the rest of the week to respect constraints."
+                    if full_context_plan:
+                        for idx, entry in enumerate(new_plan):
+                            if target_offset + idx < len(full_context_plan):
+                                full_context_plan[target_offset + idx] = entry
             
             return resp_text, new_plan, full_context_plan, None
 
-        # Parse target day
+        # Check if the prompt has prepositions "to" or "with" indicating a target recipe
+        prepositions = [" to ", " with "]
+        prep_found = None
+        for prep in prepositions:
+            if prep in msg_lower:
+                prep_found = prep
+                break
+                
+        target_query = user_message
+        source_query = user_message
+        
+        if prep_found:
+            parts = user_message.split(prep_found, 1)
+            source_query = parts[0]
+            target_query = parts[1]
+
+        # Parse target day from either full message or source part
         target_day_idx = None
         for d_idx, day_name in enumerate(["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]):
             if day_name in msg_lower:
                 target_day_idx = d_idx
                 break
 
-        # Check if user requested a "replace <recipe>" or "replace <recipe1> with <recipe2>"
+        # Check if user requested a replacement/change/swap of a specific recipe
         replace_mode = False
-        if "replace" in msg_lower:
-            # Look for which recipe in the current week's plan is mentioned in the user message
+        if any(action in msg_lower for action in ["replace", "change", "swap"]):
+            # Look for which recipe in the current week's plan is mentioned in the source part of user message
             for idx, entry in enumerate(new_plan):
                 rec_name = entry.get("recipe_name", "")
-                if rec_name.lower() in msg_lower:
+                if rec_name.lower() in source_query.lower():
                     target_day_idx = idx
                     replace_mode = True
                     break
             
             # If we matched a recipe from the current week's plan, check if we have an alternate replacement recipe
             if replace_mode:
-                if "with" in msg_lower:
-                    parts = msg_lower.split("with", 1)
-                    after_with = parts[1].strip()
-                    specific_recipe = find_best_recipe_match(after_with, self.recipes)
+                if prep_found:
+                    specific_recipe = find_best_recipe_match(target_query, self.recipes)
                 else:
                     specific_recipe = None
+                    target_query = ""
 
-        # Parse category requested
+        # Parse category requested (from target query if replacing, else full message)
         target_category = None
-        category_search_text = msg_lower
-        if replace_mode:
-            if "with" in msg_lower:
-                parts = msg_lower.split("with", 1)
-                category_search_text = parts[1]
-            else:
-                category_search_text = ""
-
+        category_search_text = target_query.lower() if replace_mode else msg_lower
         for cat in ["dosa", "idli", "vada", "upma", "pongal", "rice", "appam", "paniyaram", "bonda", "roti", "sundal"]:
             if cat in category_search_text:
                 target_category = cat
@@ -366,9 +395,21 @@ class BreakfastPlanner:
             # Fallback if no specific recipe or category matched (e.g. they wrote "replace Appam")
             if not recipe:
                 old_name = new_plan[target_day_idx].get("recipe_name")
+                
+                # Identify already planned recipe names to avoid duplicates
+                existing_names = set()
+                if full_context_plan:
+                    existing_names = {day.get("recipe_name") for day in full_context_plan if day}
+                
                 candidates = [r for r in self.recipes if r.get("recipe_name") not in disliked_set and r.get("recipe_name") != old_name]
-                random.shuffle(candidates)
-                for r in candidates:
+                unique_candidates = [r for r in candidates if r.get("recipe_name") not in existing_names]
+                other_candidates = [r for r in candidates if r.get("recipe_name") in existing_names]
+                
+                random.shuffle(unique_candidates)
+                random.shuffle(other_candidates)
+                search_list = unique_candidates + other_candidates
+                
+                for r in search_list:
                     temp_plan = [dict(d) for d in new_plan]
                     temp_plan[target_day_idx]["recipe_name"] = r.get("recipe_name")
                     temp_plan[target_day_idx]["category"] = r.get("category")
@@ -485,3 +526,69 @@ class BreakfastPlanner:
                     full_context_plan[target_offset + idx] = new_plan[idx]
 
         return resp_text, new_plan, full_context_plan, None
+
+    def check_prompt_safety(self, user_message):
+        """
+        Guardrail check to classify user messages.
+        Returns True if ALLOWED, False if BLOCKED.
+        """
+        api_key = os.environ.get("GEMINI_API_KEY")
+        client = genai.Client(api_key=api_key) if api_key else None
+        msg_lower = user_message.lower()
+        
+        # Fast local rules for common exploit/off-topic patterns
+        malicious_patterns = [
+            "ignore previous", "system prompt", "override instructions",
+            "write code", "python script", "bash command", "sql injection",
+            "select * from", "drop table", "print the system", "you are now a",
+            "jailbreak", "prompt injection", "ignore the rules"
+        ]
+        if any(pat in msg_lower for pat in malicious_patterns):
+            return False
+
+        if client:
+            try:
+                guard_prompt = f"User input to classify: {user_message}"
+                response = client.models.generate_content(
+                    model='gemini-1.5-flash',
+                    contents=guard_prompt,
+                    config=types.GenerateContentConfig(
+                        system_instruction=(
+                            "You are a strict security guard filter for a South Indian Breakfast Concierge App.\n"
+                            "Your job is to decide whether to ALLOW or BLOCK the user's message.\n"
+                            "You must ALLOW ONLY requests that are directly related to food, recipes, breakfast planning, kitchen ingredients, grocery lists, likes/dislikes of meals, or feeling unwell/sick.\n"
+                            "You must BLOCK all general conversation, jokes, general knowledge, programming/coding help, math, translation, or questions about anything else.\n"
+                            "Respond with EXACTLY one word: either 'ALLOW' or 'BLOCK'. Do not include any other text or explanation."
+                        ),
+                        temperature=0.0
+                    ),
+                )
+                verdict = response.text.strip().upper()
+                if "BLOCK" in verdict:
+                    return False
+            except Exception:
+                pass
+                
+        # Basic heuristic checking if LLM is offline:
+        # Check if they are talking about standard food/swap actions
+        food_keywords = [
+            "dosa", "idli", "vada", "upma", "pongal", "rice", "appam", "paniyaram", "bonda",
+            "roti", "rotti", "puri", "bath", "bhath", "khichdi", "kesari", "baje", "puttu",
+            "sajjige", "java", "porridge", "avaloakki", "poha", "shavige", "sundal", "breakfast",
+            "menu", "recipe", "food", "eat", "swap", "replace", "change", "dislike", "like",
+            "sick", "unwell", "light", "stomach", "fever", "yes", "ok", "okay", "sure",
+            "confirm", "go ahead", "make", "instead", "prefer", "want", "add", "schedule",
+            "put", "have", "prepare", "cooked", "serve", "served", "cooking", "cook", "preparing"
+        ]
+        
+        # Clean punctuation and split into words
+        cleaned_msg = "".join(c if c.isalnum() or c.isspace() else " " for c in msg_lower)
+        words = set(cleaned_msg.split())
+        
+        # If it doesn't match any food keywords and seems off-topic, block it
+        if not any(kw in words for kw in food_keywords):
+            # If the query length is long or has no food relation, block it
+            if len(user_message.split()) > 3:
+                return False
+                
+        return True

@@ -476,11 +476,22 @@ with right_col:
             # Reset day selection on new chat request to focus back to week view
             st.session_state.selected_day_idx = None
             
+            planner = BreakfastPlanner()
+            
+            # Guardrail check for safety / relevance
+            if not planner.check_prompt_safety(user_prompt):
+                blocked_msg = "sorry I don't think I can help you with that"
+                st.session_state.messages.append({"role": "user", "content": user_prompt})
+                with st.chat_message("user", avatar="👤"):
+                    st.write(user_prompt)
+                with st.chat_message("assistant", avatar="🧑‍🍳"):
+                    st.write(blocked_msg)
+                st.session_state.messages.append({"role": "assistant", "content": blocked_msg})
+                st.rerun()
+                
             # Programmatic parsing for dislikes/exclusions
             msg_lower = user_prompt.lower()
             disliked_detected = []
-            
-            planner = BreakfastPlanner()
             # Find closest match for dislikes in database using sequence matching (typo tolerance)
             if any(w in msg_lower for w in ["don't like", "dislike", "remove", "exclude", "never show"]):
                 matched_recipe = find_best_recipe_match(user_prompt, planner.recipes)
@@ -508,7 +519,12 @@ with right_col:
                             st.session_state.current_week + 
                             st.session_state.next_week
                         )
-                        offset = 7 if st.session_state.current_week_idx == 1 else 14
+                        if st.session_state.current_week_idx == 0:
+                            offset = 0
+                        elif st.session_state.current_week_idx == 1:
+                            offset = 7
+                        else:
+                            offset = 14
                         
                         agent_reply, updated_plan, updated_full_context, next_pending = planner.process_chat_request(
                             user_prompt, active_plan, st.session_state.disliked_recipes, full_context, offset, st.session_state.pending_swap
