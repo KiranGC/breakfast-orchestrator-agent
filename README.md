@@ -1,4 +1,4 @@
-# Breakfast Orchestrator Agent
+# Breakfast Concierge Agent
 
 An AI Agent designed for the Kaggle Capstone Project to plan, schedule, and orchestrate South Indian breakfast menus based on recipes and ingredients data.
 
